@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <Nav />
 
         <Switch>
-          <Route path="/" exact component={''} />
+          <Route path="/" exact component={Home} />
           <Route path="/manage-puns" component={''} />
           <Route path="/create-pun" component={''} />
           {/* 
