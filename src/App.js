@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import ManageItems from './pages/admin/ManageItems';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/manage-puns" component={''} />
+          <Route path="/admin/ManageItems" component={ManageItems} />
           <Route path="/create-pun" component={''} />
           {/* 
                 Make sure to specify the parameter ":id" in the URL
