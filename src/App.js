@@ -1,24 +1,36 @@
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav';
-import Home from './components/Home';
 import ManageItems from './pages/admin/ManageItems';
+import CreateItem from './pages/admin/CreateItem';
+import Items from './pages/Items';
+import Item from './pages/Item';
 
 function App() {
+
+  // const buttonEffect = () => {
+  //   const allButtons = document.querySelectorAll('button');
+  //   console.log(allButtons);
+  //   // const computedStyle = window.getComputedStyle(allButtons[0]);
+  //   // console.log(computedStyle);
+  // }
+  
+  // useEffect(() => {
+  //   buttonEffect();
+  // })
+
   return (
     <Router>
       <div className="App">
         <Nav />
 
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Items} />
           <Route path="/admin/ManageItems" component={ManageItems} />
-          <Route path="/create-pun" component={''} />
-          {/* 
-                Make sure to specify the parameter ":id" in the URL
-                This will ensure that UpdatePun.js gets hold of the punId, through the variable "match"
-            */}
-          <Route path="/update-pun/:id" component={''} />
+          <Route path="/admin/CreateItem" component={CreateItem} />
+          <Route path="/Item/:id" component={Item} />
+        
         </Switch>
       </div>
     </Router>

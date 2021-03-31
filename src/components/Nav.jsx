@@ -6,7 +6,7 @@ function Nav() {
     <nav>
       <ul>
         <Link to="/">Shop</Link>
-        <Link to="/">Admin</Link>
+        <Link to="/admin/ManageItems">Admin</Link>
       </ul>
     </nav>
   );
