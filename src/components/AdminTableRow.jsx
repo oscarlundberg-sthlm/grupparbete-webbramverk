@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-function AdminTableRow({ item }) {
+function AdminTableRow({ item, deleteItem }) {
+    
+    const handleDeleteBtn = () => {
+        deleteItem(item['_id']);
+    }
+
     return (
         <tr>
-            <td>{item.title}</td>
-            <td>{item.category}</td>
-            <td>{item.stock}</td>
-            <td>{item.price}</td>
-            <td>
+            <td className={'admin-table-column-title'}>{item.title}</td>
+            <td className={'admin-table-column-category'}>{item.category}</td>
+            <td className={'admin-table-column-stock'}>{item.stock}</td>
+            <td className={'admin-table-column-price'}>{item.price}</td>
+            <td className={'admin-table-column-buttons'}>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={handleDeleteBtn}>Delete</button>
             </td>
         </tr>
     )
