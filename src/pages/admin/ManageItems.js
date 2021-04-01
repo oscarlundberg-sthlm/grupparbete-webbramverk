@@ -90,7 +90,7 @@ function ManageItems() {
                         <th className={'admin-table-column-title'}>Product</th>
                         <th className={'admin-table-column-category'}>Category</th>
                         <th className={'admin-table-column-stock'}>Stock</th>
-                        <th className={'admin-table-column-price'}>Price</th>
+                        <th className={'admin-table-column-price'}>Price {"($)"}</th>
                         <th className={'admin-table-column-buttons'}>Actions</th>
                     </tr>
                 </thead>
