@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import { useHistory} from "react-router-dom"
+import { useHistory} from 'react-router-dom'
 import Form from '../../components/Form'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const ReturnDiv = styled.div`
     display: flex;
@@ -40,10 +40,9 @@ const ReturnDiv = styled.div`
         width: 70px;
         height: 30px;
         border-color: grey;
-        margin: 10px 0px;
+        margin: 10px 0px; 
     }
 `
-
 
 
 function CreateItem() {
@@ -78,7 +77,6 @@ function CreateItem() {
         }
     }
 
-
     return (
         <ReturnDiv>
             <h1>Create Product</h1>
@@ -87,6 +85,7 @@ function CreateItem() {
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 item={item}
+                pageId="create-item"
             />
 
         </ReturnDiv>
