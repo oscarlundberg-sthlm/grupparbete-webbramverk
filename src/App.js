@@ -11,19 +11,21 @@ import Header from './components/Header';
 
 function App() {
 
-  const headerBackgroundColor = '#212121DD';
+  const headerBackgroundColor = '#DC8CE9';
   const headerTextColor = 'whitesmoke';
+  const navBackgroundColor = '#fb8262';
 
   return (
     <Router>
       <div className="App">
         <Header 
-        headerBackgroundColor={headerBackgroundColor} 
-        headerTextColor={headerTextColor} 
+        backgroundColor={headerBackgroundColor} 
+        backgroundColor2={navBackgroundColor}
+        textColor={headerTextColor} 
         />
         <Nav 
-        headerBackgroundColor={headerBackgroundColor} 
-        headerTextColor={headerTextColor} 
+        backgroundColor={navBackgroundColor} 
+        textColor={headerTextColor} 
         />
 
         <Switch>

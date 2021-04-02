@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Nav({ headerBackgroundColor, headerTextColor }) {
+function Nav({ backgroundColor, textColor }) {
 
   const ReturnNav = styled.nav`
-    background-color: ${headerBackgroundColor};
+    background-color: ${backgroundColor};
     padding-top: 10px;
     padding-bottom: 10px;
     ul {
@@ -14,7 +14,7 @@ function Nav({ headerBackgroundColor, headerTextColor }) {
     }
     a {
       margin: 0 40px;
-      color: ${headerTextColor};
+      color: ${textColor};
       font-weight: 500;
     }
   `
