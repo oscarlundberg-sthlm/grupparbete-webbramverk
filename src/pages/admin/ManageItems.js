@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import AdminTableRow from '../../components/AdminTableRow';
 
-const colorOrange = "#f34e1e";
-const colorLilac = "#db7093";
-const colorYellow = "#f3b661";
-
 const ReturnDiv = styled.div`
     --tableWidth: 70vw;
     --tableCellPadding: 10px;
@@ -16,26 +12,31 @@ const HeadDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 50px auto 20px auto;
-    min-width: 679px;
     width: var(--tableWidth);
     > * {
         padding: 0 var(--tableCellPadding);
+    }
+    .admin-create-btn {
+        background-color: #5C8FF2;
+    }
+    .admin-create-btn:hover {
+        background-color: #3579FD;
+        outline: 10px solid #ececec;
     }
 `;
 
 const Table = styled.table`
     margin: 0 auto;
-    min-width: var(--tableWidth);
+    width: var(--tableWidth);
     border-collapse: collapse;
-    thead {
-        background-image: linear-gradient(to top right, ${colorLilac}, ${colorYellow});
-        color: white;
+    thead tr th {
+        border-bottom: 3px solid #d3d3d3;
     }
     td, th {
         padding: var(--tableCellPadding);
     }
     tbody > tr:hover {
-        background-color: ${colorYellow + '22'};
+        background-color: #ececec;
     }
     .admin-table-column-title, 
     .admin-table-column-category {
@@ -47,6 +48,7 @@ const Table = styled.table`
     }
     .admin-table-column-buttons {
         text-align: right;
+        white-space: nowrap;
     }
     .admin-table-column-buttons > button {
         margin-left: calc(var(--tableCellPadding) / 2);
@@ -82,7 +84,7 @@ function ManageItems() {
         <ReturnDiv>
             <HeadDiv>
                 <h2>Admin panel</h2>
-                <Link to="/admin/CreateItem"><button>Add a product</button></Link>
+                <Link to="/admin/CreateItem"><button className={'admin-create-btn'}>Add Product</button></Link>
             </HeadDiv>
             <Table>
                 <thead>

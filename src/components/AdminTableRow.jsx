@@ -1,5 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+
+const Tablerow = styled.tr`
+    .admin-edit-btn {
+        background-color: #B58CE9;
+    }
+    .admin-edit-btn:hover {
+        background-color: #8C37F9;
+    }
+    .admin-delete-btn {
+        background-color: #E98C8C;
+    }
+    .admin-delete-btn:hover {
+        background-color: #E83030;
+    }
+`
 
 function AdminTableRow({ item, deleteItem }) {
     
@@ -7,17 +23,22 @@ function AdminTableRow({ item, deleteItem }) {
         deleteItem(item['_id']);
     }
 
+    const ItemTitleFormatted = () => {
+        const cutOff = item.title.indexOf('|');
+        return cutOff > 0 ? item.title.substring(0, cutOff) : item.title;
+    };
+
     return (
-        <tr>
-            <td className={'admin-table-column-title'}>{item.title}</td>
+        <Tablerow>
+            <td className={'admin-table-column-title'}>{ItemTitleFormatted()}</td>
             <td className={'admin-table-column-category'}>{item.category}</td>
             <td className={'admin-table-column-stock'}>{item.stock}</td>
             <td className={'admin-table-column-price'}>{item.price}</td>
             <td className={'admin-table-column-buttons'}>
-                <Link to={`/admin/UpdateItem/${item['_id']}`}><button>Edit</button></Link>
-                <button onClick={handleDeleteBtn}>Delete</button>
+                <Link to={`/admin/UpdateItem/${item['_id']}`}><button className={'admin-edit-btn'}>Edit</button></Link>
+                <button className={'admin-delete-btn'} onClick={handleDeleteBtn}>Delete</button>
             </td>
-        </tr>
+        </Tablerow>
     )
 }
 
