@@ -18,6 +18,7 @@ const HeadDiv = styled.div`
     }
     .admin-create-btn {
         background-color: #5C8FF2;
+        outline: 0px solid #ececec;
     }
     .admin-create-btn:hover {
         background-color: #3579FD;

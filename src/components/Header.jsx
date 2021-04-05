@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import styled, { keyframes } from 'styled-components';
-import actionBackground from '../img/backgrounds/actionbackground.png';
 
 function Header({ backgroundColor, backgroundColor2, textColor }) {
 
@@ -17,20 +16,11 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
             text-align: center;
             font-size: 0.8rem;
         }
-        // &:before {
-        //     content: ' ';
-        //     display: block;
-        //     position: absolute;
-        //     z-index: -1;
-        //     left: 0;
-        //     top: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     opacity: 0.6;
-        //     background-image: url(${actionBackground});
-        //     background-repeat: no-repeat;
-        //     background-position: 50% 85%;
-        //     background-size: cover;
+    `
+    const bandanaAnimation = keyframes`
+        50% {
+            transform: rotate(5deg);
+        }
     `
     const LogoContainer = styled.div`
         display: flex;
@@ -43,28 +33,22 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
         svg #clip0 {
             fill: #DC8CE9;
         }
+        #bandana-lighter {
+            fill: #464646;
+        }
+        #bandana-lighter-tail {
+            fill: #464646;
+            transform: rotate(0deg);
+            transform-origin: 191px 8px;
+            animation: ${bandanaAnimation} 1.9s ease-out alternate infinite;
+        }
+        #bandana-darker-tail {
+            fill: #464646;
+            transform: rotate(12deg);
+            transform-origin: 191px 8px;
+            animation: ${bandanaAnimation} 2s ease-out alternate infinite .33s;
+        }
     `
-    // const heartAnimation = keyframes`
-    //         to {opacity: 0.3}
-    // `
-    // const Logo = styled.h1`
-    //     font-family: 'Metal Mania', cursive;
-    //     font-size: 3.4rem;
-    //     margin: 0 50px;
-    //     padding: 0;
-    //     text-align: center;
-    //     .fa {
-    //         font-size: 1rem;
-    //         color: red;
-    //         position: relative;
-    //         bottom: 0.5rem;
-    //         animation: ${heartAnimation} 1s alternate infinite;
-    //     }
-    // `
-    // const LineDiv = styled.div`
-    //     border-bottom: 2px solid ${textColor};
-    //     width: 100px;
-    // `
 
     return (
         <ReturnDiv>
