@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import AdminTableRow from '../../components/AdminTableRow';
+import {getAllItems} from '../../functions/GetAllItems';
 
 const ReturnDiv = styled.div`
     --tableWidth: 70vw;
@@ -60,14 +61,8 @@ const Table = styled.table`
 function ManageItems() {
     const [items, setItems] = useState([]);
 
-    const getAllItems = async () => {
-        const response = await fetch('http://localhost:5000/products');
-        const data = await response.json();
-        setItems(data);
-    };
-
     useEffect(() => {
-        getAllItems();
+        getAllItems().then(data => setItems(data));
     }, []);
 
     const deleteItem = async (itemID) => {
@@ -75,7 +70,7 @@ function ManageItems() {
             await fetch(`http://localhost:5000/products/${itemID}`, {
                 method: 'DELETE'
             });
-            getAllItems();
+            getAllItems().then(data => setItems(data));
         } catch (error) {
             throw new Error(error);
         }
