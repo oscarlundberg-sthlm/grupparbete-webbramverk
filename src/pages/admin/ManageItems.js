@@ -93,8 +93,8 @@ function ManageItems() {
                     </tr>
                 </thead>
                 <tbody>
-                    { items.map((item) => (
-                        <AdminTableRow key={item['_id']} item={item} deleteItem={deleteItem} />
+                    { items.map((item, index) => (
+                        <AdminTableRow key={item['_id']} item={item} deleteItem={deleteItem} listIndex={index} />
                     )) }
                 </tbody>
             </Table>
