@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 import ninjaImg from '../img/Ninja-fly-kick.png';
 import iphoneImg from '../img/iphone.png';
 import explotionImg from '../img/Explotion2.png';
+import landscapeLeft from '../img/header-landscape/landscape-left.svg';
+import landscapeRight from '../img/header-landscape/landscape-right.svg';
+
+// Bakgrundsfärg för hela sidan? Typ havsblå #334983
 
 function Header({ backgroundColor, backgroundColor2, textColor }) {
 
@@ -16,15 +20,27 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
         #ninja {
             width: 200px;
             position: absolute;
+            z-index: 1;
         }
         #iphone {
             width: 60px;
             position: absolute;
+            z-index: 1;
         }
         #explotion {
             position: absolute;
             top: -70px;
             z-index: 10;
+        }
+        #landscape-left {
+            position: absolute;
+            top: 62px;
+            left: 0;
+        }
+        #landscape-right {
+            position: absolute;
+            top: 62px;
+            right: 0;
         }
     `
     const bandanaAnimation = keyframes`
@@ -156,6 +172,8 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
                     </defs>
                 </svg>
             </LogoContainer>
+            <img src={landscapeLeft} alt="Landscape leftside" id={'landscape-left'} />
+            <img src={landscapeRight} alt="Landscape rightside" id={'landscape-right'} />
         </ReturnDiv>
     )
 }
