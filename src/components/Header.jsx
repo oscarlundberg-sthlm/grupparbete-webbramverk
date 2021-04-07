@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import { motion } from "framer-motion";
 import ninjaImg from '../img/Ninja-fly-kick.png';
 import iphoneImg from '../img/iphone.png';
+import explotionImg from '../img/Explotion2.png';
 
 function Header({ backgroundColor, backgroundColor2, textColor }) {
 
@@ -19,6 +20,11 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
         #iphone {
             width: 60px;
             position: absolute;
+        }
+        #explotion {
+            position: absolute;
+            top: -70px;
+            z-index: 10;
         }
     `
     const bandanaAnimation = keyframes`
@@ -55,56 +61,81 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
     `
 
     //animation variables:
-    const slideAniDuration = 4;
+    const slideAniDuration = 3;
     const ninjaSlideStartPos = -200;
-    const ninjaSlideEndPos = (window.innerWidth / 2) - 200;
+    const ninjaSlideEndPos = (document.body.clientWidth / 2) - 200;
     const iphoneSlideStartPos = '100vw';
     const iphoneSlideEndPos = '50vw';
-    const opacityArray = [1, 1, 0];
+    const explotionCentering = (document.body.clientWidth / 2) - (346 / 2);
+    const opacityArrayFlying = [1,1,1,1,0];
 
     return (
         <ReturnDiv>
             <motion.img
+                src={ninjaImg} 
+                alt={'ninja'} 
+                id={'ninja'} 
                 initial={{
                     x: ninjaSlideStartPos
                 }}
                 animate={{
                     x: [ninjaSlideStartPos, ninjaSlideEndPos, ninjaSlideEndPos],
-                    opacity: opacityArray
+                    opacity: opacityArrayFlying
                 }}
                 transition={{
                     duration: slideAniDuration,
                     type: "tween",
                     ease: "linear"
                 }}
-                src={ninjaImg} 
-                alt={'ninja'} 
-                id={'ninja'} 
             />
             <motion.img
+                src={iphoneImg} 
+                alt={'iphone'} 
+                id={'iphone'} 
                 initial={{
                     x: iphoneSlideStartPos
                 }}
                 animate={{
                     x: [iphoneSlideStartPos, iphoneSlideEndPos, iphoneSlideEndPos],
-                    opacity: opacityArray
+                    opacity: opacityArrayFlying
                 }}
                 transition={{
                     duration: slideAniDuration,
                     type: "tween",
                     ease: "linear"
                 }}
-                src={iphoneImg} 
-                alt={'iphone'} 
-                id={'iphone'} 
+            />
+            <motion.img
+                src={explotionImg} 
+                alt={'explotion'} 
+                id={'explotion'} 
+                initial={{
+                    x: explotionCentering,
+                    opacity: 0,
+                    scale: 0.1
+                }}
+                animate={{
+                    x: explotionCentering,
+                    opacity: [0,0,0,0.9,0],
+                    scale: [0.1,0.1,5],
+                    transitionEnd: {
+                        display: "none",
+                    }
+                }}
+                transition={{
+                    duration: slideAniDuration,
+                    type: "tween",
+                    ease: "linear"
+                }}
             />
             <LogoContainer 
             initial={{y: -127}} 
             animate={{y: 0}} 
             transition={{
-                delay: slideAniDuration - (slideAniDuration / 3),
+                delay: slideAniDuration,
                 type: 'spring',
-                bounce: 0.8
+                bounce: 0.8,
+                duration: 2
             }}
             >
                 <svg width="252" height="87" viewBox="0 0 252 87" fill="none" xmlns="http://www.w3.org/2000/svg">
