@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 
-const Tablerow = styled.tr`
+const Tablerow = styled(motion.tr)`
     .admin-edit-btn {
         background-color: #B58CE9;
     }
@@ -17,8 +18,8 @@ const Tablerow = styled.tr`
     }
 `
 
-function AdminTableRow({ item, deleteItem }) {
-    
+function AdminTableRow({ item, deleteItem, listIndex }) {
+
     const handleDeleteBtn = () => {
         deleteItem(item['_id']);
     }
@@ -29,7 +30,20 @@ function AdminTableRow({ item, deleteItem }) {
     };
 
     return (
-        <Tablerow>
+        <Tablerow
+            initial={{
+                opacity: 0,
+                y: '100%'
+            }}
+            animate={{
+                opacity: 1,
+                y: 0,
+            }}
+            transition={{
+                delay: listIndex * 0.05,
+                type: "tween"
+            }}
+        >
             <td className={'admin-table-column-title'}>{ItemTitleFormatted()}</td>
             <td className={'admin-table-column-category'}>{item.category}</td>
             <td className={'admin-table-column-stock'}>{item.stock}</td>
