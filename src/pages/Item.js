@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Product from '../components/Product';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Item({ match }) {
   const [singleItem, setSingleItem] = useState({});
@@ -19,7 +20,19 @@ function Item({ match }) {
 
   return (
     <Main>
-      <Wrapper>
+      <Wrapper
+        initial={{
+          opacity: 0,
+          y: '100%',
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          type: 'tween',
+        }}
+      >
         <Imgcontainer>
           <img src={singleItem.image} alt="logo" width="400" />
         </Imgcontainer>
@@ -59,16 +72,14 @@ const Main = styled.div`
   margin-top: 80px;
   height: 70vh;
 `;
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   width: 55rem;
   height: 30rem;
   padding: 1rem;
   border-radius: 1rem;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 1px 1px 5px 2px #ccc;
 `;
 const Imgcontainer = styled.div`
   height: 350px;

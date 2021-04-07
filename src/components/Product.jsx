@@ -44,9 +44,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 1px 1px 5px 2px #ccc;
 `;
 const Infocontainer = styled.div`
   height: 14rem;
