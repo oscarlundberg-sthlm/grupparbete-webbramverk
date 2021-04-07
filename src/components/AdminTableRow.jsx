@@ -19,7 +19,7 @@ const Tablerow = styled(motion.tr)`
 `
 
 function AdminTableRow({ item, deleteItem, listIndex }) {
-    console.log(listIndex);
+
     const handleDeleteBtn = () => {
         deleteItem(item['_id']);
     }
