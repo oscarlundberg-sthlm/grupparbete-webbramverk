@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ninjaImg from '../img/Ninja-fly-kick.png';
 import iphoneImg from '../img/iphone.png';
 import explotionImg from '../img/Explotion2.png';
+import cloudImg from '../img/Cloud.svg';
 import landscapeLeft from '../img/header-landscape/landscape-left.svg';
 import landscapeRight from '../img/header-landscape/landscape-right.svg';
 
@@ -20,12 +21,12 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
         #ninja {
             width: 200px;
             position: absolute;
-            z-index: 1;
+            z-index: 3;
         }
         #iphone {
             width: 60px;
             position: absolute;
-            z-index: 1;
+            z-index: 3;
         }
         #explotion {
             position: absolute;
@@ -36,11 +37,23 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
             position: absolute;
             top: 62px;
             left: 0;
+            z-index: 2
         }
         #landscape-right {
             position: absolute;
             top: 62px;
             right: 0;
+            z-index: 2
+        }
+        .cloud {
+            position: absolute;
+            z-index: 0;
+        }
+        #cloud2 {
+            width: 80px;
+        }
+        #cloud3 {
+            width: 125px;
         }
     `
     const bandanaAnimation = keyframes`
@@ -49,6 +62,8 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
         }
     `
     const LogoContainer = styled(motion.div)`
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
@@ -84,6 +99,12 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
     const iphoneSlideEndPos = '50vw';
     const explotionCentering = (document.body.clientWidth / 2) - (346 / 2);
     const opacityArrayFlying = [1,1,1,1,0];
+
+    const cloudVariant = {
+        animate: {
+            x: '100vw'
+        }
+    }
 
     return (
         <ReturnDiv>
@@ -142,6 +163,63 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
                     duration: slideAniDuration,
                     type: "tween",
                     ease: "linear"
+                }}
+            />
+            <motion.img
+                src={cloudImg}
+                alt={'cloud graphic'}
+                className={'cloud'}
+                id={'cloud1'}
+                variants={cloudVariant}
+                initial={{
+                    y: 40,
+                    x: -107
+                }}
+                animate='animate'
+                transition={{
+                    duration: 60,
+                    type: "tween",
+                    ease: "linear",
+                    delay: 0,
+                    repeat: Infinity
+                }}
+            />
+            <motion.img
+                src={cloudImg}
+                alt={'cloud graphic'}
+                className={'cloud'}
+                id={'cloud2'}
+                variants={cloudVariant}
+                initial={{
+                    y: 80,
+                    x: -80
+                }}
+                animate='animate'
+                transition={{
+                    duration: 80,
+                    type: "tween",
+                    ease: "linear",
+                    delay: 20,
+                    repeat: Infinity
+                }}
+            />
+            <motion.img
+                src={cloudImg}
+                alt={'cloud graphic'}
+                className={'cloud'}
+                id={'cloud3'}
+                variants={cloudVariant}
+                initial={{
+                    y: 10,
+                    x: -125
+                }}
+                animate='animate'
+                transition={{
+                    duration: 40,
+                    type: "tween",
+                    ease: "linear",
+                    delay: 35,
+                    repeat: Infinity
                 }}
             />
             <LogoContainer 
