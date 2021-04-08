@@ -58,7 +58,7 @@ const Wrapper = styled(motion.div)`
   width: 18rem;
   height: 26rem;
   padding: 1rem;
-  margin-bottom: 2.8rem;
+  margin-bottom: 1.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
