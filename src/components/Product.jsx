@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import '../App.css';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 // ITEM render/function
 function Product({ item }) {
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{
+        opacity: 0,
+        y: '100%',
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        delay: 0.05,
+        type: 'tween',
+      }}
+      whileTap={{
+        scale: 1.1,
+      }}
+    >
       <Link to={`/Item/${item['_id']}`}>
         <Imgcontainer>
           <img src={item.image} alt="logo" />
@@ -25,7 +42,9 @@ function Product({ item }) {
             <Stock>In stock: {item.stock}</Stock>
           </PriceDiv>
 
-          <Btn>ADD TO CART</Btn>
+          <Btn whileHover={{ scale: 0.98 }} whileTap={{ scale: 1.1 }}>
+            ADD TO CART
+          </Btn>
         </Infocontainer>
       </Link>
     </Wrapper>
@@ -35,7 +54,7 @@ function Product({ item }) {
 export default Product;
 
 // Styling
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   width: 18rem;
   height: 26rem;
   padding: 1rem;
@@ -89,7 +108,7 @@ const Span = styled.span`
   font-size: 1.2rem;
   font-weight: 700;
 `;
-const Btn = styled.button`
+const Btn = styled(motion.button)`
   width: 16rem;
   height: 2.5rem;
   border: none;

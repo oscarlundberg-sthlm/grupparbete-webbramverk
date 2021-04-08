@@ -39,7 +39,9 @@ function Item({ match }) {
         <TextContainer>
           <Closecontainer>
             <Link to="/">
-              <Closebtn>X</Closebtn>
+              <Closebtn whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                X
+              </Closebtn>
             </Link>
           </Closecontainer>
 
@@ -156,7 +158,7 @@ const Closecontainer = styled.div`
   justify-content: flex-end;
 `;
 
-const Closebtn = styled.button`
+const Closebtn = styled(motion.button)`
   background-color: #ec7979;
   border: none;
   color: whitesmoke;
