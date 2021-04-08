@@ -8,6 +8,8 @@ import UpdateItem from './pages/admin/UpdateItem';
 import Items from './pages/Items';
 import Item from './pages/Item';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
 
 function App() {
 
@@ -36,6 +38,7 @@ function App() {
           <Route path="/Item/:id" component={Item} />
         
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
