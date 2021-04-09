@@ -9,7 +9,7 @@ import cloudImg from '../img/Cloud.svg';
 import landscapeLeft from '../img/header-landscape/landscape-left.svg';
 import landscapeRight from '../img/header-landscape/landscape-right.svg';
 
-// Bakgrundsfärg för hela sidan? Typ havsblå #334983
+
 
 function Header({ backgroundColor, backgroundColor2, textColor }) {
 
@@ -45,6 +45,12 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
             right: 0;
             z-index: 2
         }
+    `
+    const Clouds = styled.div`
+        position: absolute;
+        height: 127px;
+        width: 100%;
+        overflow-x: hidden;
         .cloud {
             position: absolute;
             z-index: 0;
@@ -107,7 +113,7 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
     }
 
     return (
-        <ReturnDiv>
+        <ReturnDiv id={'header'}>
             <motion.img
                 src={ninjaImg} 
                 alt={'ninja'} 
@@ -154,7 +160,7 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
                 animate={{
                     x: explotionCentering,
                     opacity: [0,0,0,0.9,0],
-                    scale: [0.1,0.1,5],
+                    scale: [0.1,0.1,3],
                     transitionEnd: {
                         display: "none",
                     }
@@ -165,63 +171,65 @@ function Header({ backgroundColor, backgroundColor2, textColor }) {
                     ease: "linear"
                 }}
             />
-            <motion.img
-                src={cloudImg}
-                alt={'cloud graphic'}
-                className={'cloud'}
-                id={'cloud1'}
-                variants={cloudVariant}
-                initial={{
-                    y: 40,
-                    x: -107
-                }}
-                animate='animate'
-                transition={{
-                    duration: 60,
-                    type: "tween",
-                    ease: "linear",
-                    delay: 0,
-                    repeat: Infinity
-                }}
-            />
-            <motion.img
-                src={cloudImg}
-                alt={'cloud graphic'}
-                className={'cloud'}
-                id={'cloud2'}
-                variants={cloudVariant}
-                initial={{
-                    y: 80,
-                    x: -80
-                }}
-                animate='animate'
-                transition={{
-                    duration: 80,
-                    type: "tween",
-                    ease: "linear",
-                    delay: 20,
-                    repeat: Infinity
-                }}
-            />
-            <motion.img
-                src={cloudImg}
-                alt={'cloud graphic'}
-                className={'cloud'}
-                id={'cloud3'}
-                variants={cloudVariant}
-                initial={{
-                    y: 10,
-                    x: -125
-                }}
-                animate='animate'
-                transition={{
-                    duration: 40,
-                    type: "tween",
-                    ease: "linear",
-                    delay: 35,
-                    repeat: Infinity
-                }}
-            />
+            <Clouds>
+                <motion.img
+                    src={cloudImg}
+                    alt={'cloud graphic'}
+                    className={'cloud'}
+                    id={'cloud1'}
+                    variants={cloudVariant}
+                    initial={{
+                        y: 40,
+                        x: -107
+                    }}
+                    animate='animate'
+                    transition={{
+                        duration: 60,
+                        type: "tween",
+                        ease: "linear",
+                        delay: 0,
+                        repeat: Infinity
+                    }}
+                />
+                <motion.img
+                    src={cloudImg}
+                    alt={'cloud graphic'}
+                    className={'cloud'}
+                    id={'cloud2'}
+                    variants={cloudVariant}
+                    initial={{
+                        y: 80,
+                        x: -80
+                    }}
+                    animate='animate'
+                    transition={{
+                        duration: 80,
+                        type: "tween",
+                        ease: "linear",
+                        delay: 20,
+                        repeat: Infinity
+                    }}
+                />
+                <motion.img
+                    src={cloudImg}
+                    alt={'cloud graphic'}
+                    className={'cloud'}
+                    id={'cloud3'}
+                    variants={cloudVariant}
+                    initial={{
+                        y: 10,
+                        x: -125
+                    }}
+                    animate='animate'
+                    transition={{
+                        duration: 40,
+                        type: "tween",
+                        ease: "linear",
+                        delay: 35,
+                        repeat: Infinity
+                    }}
+                />
+            </Clouds>
             <LogoContainer 
             initial={{y: -127}} 
             animate={{y: 0}} 
